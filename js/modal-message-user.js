@@ -5,6 +5,12 @@ const ALERT__SHOW__TIME = 5000;
 
 const alertTemplate = document.querySelector('#data-error').content;
 
+const succesTemplate = document.querySelector('#success').content;
+const newSucces = succesTemplate.querySelector('.success');
+
+const showErrorTemplate = document.querySelector('#error').content;
+const newShowErrorTemplate = showErrorTemplate.querySelector('.error');
+
 const showAlert = () => {
   const alertFragment = alertTemplate.cloneNode(true);
   const alertElement = alertFragment.firstElementChild;
@@ -45,8 +51,6 @@ function clinearEventSuccess () {
 }
 
 const showSucces = () => {
-  const templateSucces = document.querySelector('#success').content;
-  const newSucces = templateSucces.querySelector('.success');
   const cloneSucces = newSucces.cloneNode(true);
 
   document.body.append(cloneSucces);
@@ -85,10 +89,7 @@ function clinearEventError () {
 }
 
 const showError = () => {
-  const templateShowError = document.querySelector('#error').content;
-  const newTemplateShowError = templateShowError.querySelector('.error');
-  const cloneShowError = newTemplateShowError.cloneNode(true);
-  //cloneShowError.setAttribute('style', 'z-index: 3');
+  const cloneShowError = newShowErrorTemplate.cloneNode(true);
 
   document.body.append(cloneShowError);
 

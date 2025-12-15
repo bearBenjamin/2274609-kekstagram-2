@@ -2,8 +2,8 @@ const containerPreview = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content;
 const picturesFragment = document.createDocumentFragment();
 
-const renderPreview = (dataPictures) => {
-  dataPictures.forEach((data) => {
+const renderPreview = (dataPohotos) => {
+  dataPohotos.forEach((data) => {
     const { url, description, likes, comments } = data;
 
     const container = pictureTemplate.cloneNode(true);

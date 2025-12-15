@@ -5,6 +5,8 @@ import { initScale } from './scalle-photo.js';
 import { initSlaider } from './slider-effects.js';
 import { setData } from './fetch.js';
 
+const FILE_TYPES = ['png', 'gif', 'jpeg', 'jpg'];
+
 const formLoad = document.querySelector('#upload-select-image');
 
 const fieldLoadFile = formLoad.querySelector('#upload-file');
@@ -12,8 +14,6 @@ const modalEditing = formLoad.querySelector('.img-upload__overlay');
 
 const fieldHashtag = formLoad.querySelector('.text__hashtags');
 const fieldDescription = formLoad.querySelector('.text__description');
-
-const FILE_TYPES = ['png', 'gif', 'jpeg', 'jpg'];
 
 const previewImage = document.querySelector('.img-upload__preview');
 const effectPreviews = formLoad.querySelectorAll('.effects__preview');
@@ -68,8 +68,6 @@ const onBtnCloseClick = () => {
   document.removeEventListener('keydown', onModalEditingEscKeydown);
 };
 
-//fieldLoadFile.addEventListener('change', onFieldLoadChange);
-
 const blockBtnSubmit = () => {
   btnSubmitForm.disabled = true;
   btnSubmitForm.textContent = 'Публикую...';
@@ -97,7 +95,6 @@ const initFormSubmit = () => {
           showError();
           unBlockBtnSubmit();
         });
-
     }
   });
 };

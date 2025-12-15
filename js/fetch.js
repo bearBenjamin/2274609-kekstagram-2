@@ -1,4 +1,7 @@
-const BASE_URL = 'https://31.javascript.htmlacademy.pro/kekstagram';
+const BASE_API_URLS = {
+  get: 'https://31.javascript.htmlacademy.pro/kekstagram/data',
+  post: 'https://31.javascript.htmlacademy.pro/kekstagram/',
+};
 
 const sendRequest = (url, options) => fetch(url, options)
   .then((response) => {
@@ -8,10 +11,10 @@ const sendRequest = (url, options) => fetch(url, options)
     return response;
   });
 
-const getData = () => sendRequest(`${BASE_URL}/data`)
+const getData = () => sendRequest(BASE_API_URLS.get)
   .then((response) => response.json());
 
-const setData = (body) => sendRequest(BASE_URL, {
+const setData = (body) => sendRequest(BASE_API_URLS.post, {
   method: 'POST',
   body,
 })

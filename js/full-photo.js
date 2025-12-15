@@ -121,8 +121,8 @@ photoContainer.addEventListener('click', onPhotoContainerClick);
 const closeModelOpen = () => {
   fullPhotoSection.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  btnClose.removeEventListener('click', onBtnCloseClick); // можно удалить, при закрытии модального окна обработчик все равно удалится
-  btnLoadComment.removeEventListener('click', onBtnLoadCommentClick); // можно удалить, при закрытии модального окна обработчик все равно удалится
+  btnClose.removeEventListener('click', onBtnCloseClick);
+  btnLoadComment.removeEventListener('click', onBtnLoadCommentClick);
   document.removeEventListener('keydown', onEscKeydown);
   countComment = 0;
 };

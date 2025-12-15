@@ -31,22 +31,22 @@ const showPhotos = (dataPhotos) => {
 
 const showPhotosDebounce = debounce((data, time) => showPhotos(data, time));
 
-const getRandomPhoto = (dataPhoto) => {
-  const result = [];
+const getRandomPhoto = (dataPhotos) => {
+  const results = [];
   const totalCount = 10;
-  const arrayLength = dataPhoto.length;
+  const dataPhotosLength = dataPhotos.length;
 
-  while (result.length < totalCount) {
-    const randomIndex = Math.floor(Math.random() * arrayLength);
+  while (results.length < totalCount) {
+    const randomIndex = Math.floor(Math.random() * dataPhotosLength);
 
-    const randomElement = dataPhoto[randomIndex];
+    const randomElement = dataPhotos[randomIndex];
 
-    if (!result.includes(randomElement)) {
-      result.push(randomElement);
+    if (!results.includes(randomElement)) {
+      results.push(randomElement);
     }
   }
 
-  return result;
+  return results;
 };
 
 const sortMessageAmount = (dataPhotos) => {
@@ -56,7 +56,7 @@ const sortMessageAmount = (dataPhotos) => {
   return sortArray;
 };
 
-const getFilterPhotos = (dataPhotos) => {
+const initFilterPhotos = (dataPhotos) => {
   showPhotos(dataPhotos);
   filterContainer.classList.remove('img-filters--inactive');
 
@@ -91,4 +91,4 @@ const getFilterPhotos = (dataPhotos) => {
 };
 
 
-export { getFilterPhotos };
+export { initFilterPhotos };
