@@ -49,11 +49,10 @@ const getRandomPhoto = (dataPhotos) => {
   return results;
 };
 
-const sortMessageAmount = (dataPhotos) => {
-  const array = [...dataPhotos];
-  const messageAmountSort = (messageA, messageB) => messageB.comments.length - messageA.comments.length;
-  const sortArray = array.sort(messageAmountSort);
-  return sortArray;
+const sortedByCommentCount = (dataPhotos) => {
+  const sortedDataPhotos = [...dataPhotos];
+  sortedDataPhotos.sort((photoA, photoB) => photoB.comments.length - photoA.comments.length);
+  return sortedDataPhotos;
 };
 
 const initFilterPhotos = (dataPhotos) => {
@@ -81,7 +80,7 @@ const initFilterPhotos = (dataPhotos) => {
         }
 
         case ('filter-discussed'): {
-          const newDataPhotos = sortMessageAmount(dataPhotos);
+          const newDataPhotos = sortedByCommentCount(dataPhotos);
           showPhotosDebounce(newDataPhotos, TIME_DELAY);
           break;
         }

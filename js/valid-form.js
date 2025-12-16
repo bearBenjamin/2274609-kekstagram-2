@@ -1,9 +1,7 @@
-const isEmptyStr = (value) => {
-  if (value.trim() === '') {
-    return true;
-  }
-  return false;
-};
+const HASHTAG_VALID_REG = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+const MAX_LENGTH = 5;
+
+const isEmptyStr = (value) => !value || value.trim() === '';
 
 const normalizeHashtag = (value) => {
   const hashtags = value.split(' ').filter((item) => item.trim() !== '');
@@ -16,8 +14,7 @@ const isHashtag = (value) => {
   }
 
   const hashtags = normalizeHashtag(value);
-  const reg = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
-  const noValidHastags = hashtags.filter((item) => reg.test(item) === false);
+  const noValidHastags = hashtags.filter((item) => HASHTAG_VALID_REG.test(item) === false);
   return noValidHastags.length === 0;
 };
 
@@ -42,10 +39,7 @@ const isLengthHashtags = (value) => {
   }
 
   const hashtags = normalizeHashtag(value);
-  if (hashtags.length > 5) {
-    return false;
-  }
-  return true;
+  return hashtags.length <= MAX_LENGTH;
 };
 
 const isCommentLength = (value) => {
